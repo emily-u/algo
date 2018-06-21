@@ -138,6 +138,7 @@
 //////////////////////////////////////////////////////////////////
 
 //rotate
+// Implement rotateArr(arr, shiftBy) that accepts array and offset. Shift arr ’s values to th e right by that amount. ‘Wrap-around’ any values that shift off array’s end to the other side, so that no data is lost. Operate in-place: given ([1,2,3],1) , change the array to [3,1,2] . Don’ t use built-in functions . 
 // function rotate(arr, n) {
 //     if (n == 0 || n > arr.length) {
 //         return arr;
@@ -156,26 +157,156 @@
 // }
 // console.log(rotate([1, 2, 3, 4], 1))
 
+// Second: allow negative shiftBy (shift L, not R) 
+// function rotate(arr, n) {
+//     if (n == 0 || n > arr.length) {
+//         return arr;
+//     }
+//     if (n > arr.length) {
+//         n = n % arr.length;
+//     }
+//     while (n > 0) {
+//         var temp = arr.pop();
+//         //temp = [4]
+//         arr.unshift(temp);
+//         // [4,1,2,3]
+//         n--;
+//     }
+//     while (n < 0) {
+//         var temp = arr.shift();
+//         // temp = [2,3,4]
+//         arr.push(temp);
+//         n++;
+//     }
+//     return arr;
+// }
+// console.log(rotate([1, 2, 3, 4], -2))
+
+// Third: minimize memory usage. With no new array, handle arrays/ shiftBy s in the millions . 
+
+// Fourth: minimize the touches of each element .
 //////////////////////////////////////////////////////////////////
+
 //filter Range
+// Alan is good at breaking secret codes. 
+// One method is to eliminate values that lie within a specific known range. 
+// Given arr and values min and max, retain only the array values between min and max. 
+// Work in-place: return the array you are given, with values in original order. 
+
+// function filterRange(arr, min, max) {
+//     var newArr=[];
+//     for(var i =0; i<arr.length; i++){
+//         if(arr[i]>=min && arr[i]<=max){
+//             newArr.push(arr[i]);
+//         }
+//     }
+//     return newArr;
+// }
+// console.log(filterRange([1,3,7,8,11], 3, 6));
 
 //////////////////////////////////////////////////////////////////
+
 //concat
+// function concat(arr1, arr2) {
+//     var newArr = [];
+//     for(var i = 0; i<arr1.length; i++){
+//         newArr.push(arr1[i]);
+//     }
+//     for(var i = 0; i<arr2.length; i++){
+//         newArr.push(arr2[i]);
+//     }
+//     return newArr;
+// }
+// console.log(concat([1,3,5],["hello","world"]));
+
 //////////////////////////////////////////////////////////////////
+
 //skyline heights
+// function skyline_heights(arr) {
+//     var newArr=[];
+//     var temp_max=arr[0];
+//     for(var i = 0; i<arr.length; i++){
+//         if(arr[i]>=temp_max && arr[i]>0){
+//             temp_max = arr[i];
+//             newArr.push(arr[i]);
+//         }
+//     }
+//     return newArr;
+// }
+// console.log(skyline_heights([-1,1,7,3]));
+
 //////////////////////////////////////////////////////////////////
+
 //remove negatives
+// function remove_negatives(arr) {
+//     var count = 0;
+//     for(var i = 0; i<arr.length; i++){
+//         if(arr[i]<0){
+//             count++;
+//         }else{
+//             arr[i-count]=arr[i];
+//         }
+//     }
+//     arr.length = arr.length - count;
+//     return arr;
+// }
+// console.log(remove_negatives([-1,4,-2,6]));
+
 //////////////////////////////////////////////////////////////////
-//remode negatives(stable)
+
+//remove negatives(stable)
+
+
 //////////////////////////////////////////////////////////////////
 
 //second to last
+// Return the second-to-last element of an array. Given [42,true,4,"Kate",7] , return "Kate" . If array is too short, return null .
+// function second_last(arr) {
+//     var count = 0;
+//     if (arr.length < 2) {
+//         return null;
+//     } else {
+//         return arr[arr.length - 2];
+//     }
+// }
+// console.log(second_last([42, true, 7]));
+
 //////////////////////////////////////////////////////////////////
+
 //nth to last
+// function nth_last(arr, n) {
+//     if(n<=0 || n>arr.length){
+//         console.log("invalid n");
+//     }else{
+//         var count = 0;
+//         if(arr.length<n){
+//             return null;
+//         }else{
+//             return arr[arr.length-n];
+//         }
+//     }
+// }
+// console.log(nth_last([1,22,34,4,-5,6,7],6));
+
 //////////////////////////////////////////////////////////////////
+
 //second largest
+// function second_largest(arr) {
+//     arr.sort(function(a,b){
+//         return a-b;
+//     });
+//     return arr[arr.length-2];
+
+// }
+// console.log(second_largest([1,77,15,7,8,9,9,0,4]));
 //////////////////////////////////////////////////////////////////
+
 //nth largest
+
 //////////////////////////////////////////////////////////////////
+
 //credit card validation
+
 //////////////////////////////////////////////////////////////////
+
+
